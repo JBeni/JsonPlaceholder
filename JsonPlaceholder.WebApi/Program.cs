@@ -4,6 +4,16 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("EnableCORS", builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+    });
+
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
@@ -15,6 +25,7 @@ try
         app.UseSwaggerUI();
     }
 
+    app.UseCors("EnableCORS");
     app.UseHttpsRedirection();
 
     app.ConfigureApi(builder.Configuration);
