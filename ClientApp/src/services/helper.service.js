@@ -9,13 +9,6 @@ export const initialUserValues = {
     website: ''
 };
 
-export const notifyToastInfo = (message) => {
-    toast.success(message, {
-        position: 'bottom-center',
-        duration: 3000,
-    });
-}
-
 export const notifyToastError = (message) => {
     toast.error(message, {
         position: 'bottom-center',

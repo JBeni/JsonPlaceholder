@@ -16,7 +16,6 @@ export async function getUserData() {
 export async function getTodosData() {
     return axios.get(`${apiUrl}/todos/30`)
     .then((response) => {
-        console.log(response.data);
         return response.data;
     }).catch((error) => {
         notifyToastError(error.response.data.error);

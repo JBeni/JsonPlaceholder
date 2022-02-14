@@ -1,4 +1,4 @@
-﻿namespace JsonPlaceholder.WebApi.Models
+﻿namespace JsonPlaceholder.WebApi.Responses
 {
     public class GeoLocationResponse
     {

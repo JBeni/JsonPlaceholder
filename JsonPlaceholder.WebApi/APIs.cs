@@ -1,5 +1,6 @@
-﻿using JsonPlaceholder.WebApi.Models;
+﻿using JsonPlaceholder.WebApi.Responses;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace JsonPlaceholder.WebApi
 {
@@ -48,7 +49,21 @@ namespace JsonPlaceholder.WebApi
                     new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
                 );
 
-                return Results.Ok(result.Take(numberOfTodos).ToList());
+                result = result.Take(numberOfTodos).ToList();
+
+                List<DataChartResponse> chartData = new();
+                foreach (var item in result)
+                {
+                    var countLetters = Regex.Replace(item?.Title, @"[^a-zA-Z]", "").Length;
+
+                    chartData.Add(new DataChartResponse
+                    {
+                        Name = $"Post {item.Id}",
+                        Value = countLetters
+                    });
+                }
+
+                return Results.Ok(chartData);
             }
             catch (Exception ex)
             {
