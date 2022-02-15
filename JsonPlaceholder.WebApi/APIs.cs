@@ -15,8 +15,8 @@ namespace JsonPlaceholder.WebApi
 
             // Configure All Endpoints Mappings
             app.MapGet("/users/{id}", GetUser);
-            app.MapGet("/users/{numberOfPosts}", GetPosts);
-            app.MapGet("/users/{numberOfTodos}", GetTodos);
+            app.MapGet("/users/posts/{numberOfPosts}", GetPosts);
+            app.MapGet("/users/todos/{numberOfTodos}", GetTodos);
         }
 
         private static async Task<IResult> GetUser(int id)
