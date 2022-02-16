@@ -59,7 +59,7 @@ namespace JsonPlaceholder.WebApi
 
                     chartData.Add(new DataChartResponse
                     {
-                        Name = $"Post {item.Id}",
+                        Name = $"Todo {item.Id}",
                         Value = countLetters
                     });
                 }
