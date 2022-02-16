@@ -5,7 +5,7 @@ const axios = require("axios");
 const apiUrl = `${APIEndpoint.apiUrl}/users`;
 
 export async function getUserData() {
-    return axios.get(`${apiUrl}/1`)
+    return axios.get(`${apiUrl}?id=1`)
     .then((response) => {
         return response.data;
     }).catch((error) => {
@@ -14,7 +14,7 @@ export async function getUserData() {
 }
 
 export async function getTodosData() {
-    return axios.get(`${apiUrl}/todos/30`)
+    return axios.get(`${apiUrl}/todos?numberOfTodos=30`)
     .then((response) => {
         return response.data;
     }).catch((error) => {
@@ -23,7 +23,7 @@ export async function getTodosData() {
 }
 
 export async function getPostsData() {
-    return axios.get(`${apiUrl}/posts/30`)
+    return axios.get(`${apiUrl}/posts?numberOfPosts=30`)
     .then((response) => {
         return response.data;
     }).catch((error) => {

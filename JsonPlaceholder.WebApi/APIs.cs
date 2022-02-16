@@ -1,4 +1,5 @@
 ﻿using JsonPlaceholder.WebApi.Responses;
+using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -14,12 +15,12 @@ namespace JsonPlaceholder.WebApi
             JsonPlaceholderURL = configuration["JsonPlaceholderURL"];
 
             // Configure All Endpoints Mappings
-            app.MapGet("/users/{id}", GetUser);
-            app.MapGet("/users/posts/{numberOfPosts}", GetPosts);
-            app.MapGet("/users/todos/{numberOfTodos}", GetTodos);
+            app.MapGet("/users", GetUser);
+            app.MapGet("/users/posts", GetPosts);
+            app.MapGet("/users/todos", GetTodos);
         }
 
-        private static async Task<IResult> GetUser(int id)
+        private static async Task<IResult> GetUser([FromQuery] int id)
         {
             try
             {
@@ -38,7 +39,7 @@ namespace JsonPlaceholder.WebApi
             }
         }
 
-        private static async Task<IResult> GetTodos(int numberOfTodos)
+        private static async Task<IResult> GetTodos([FromQuery] int numberOfTodos)
         {
             try
             {
@@ -71,7 +72,7 @@ namespace JsonPlaceholder.WebApi
             }
         }
 
-        private static async Task<IResult> GetPosts(int numberOfPosts)
+        private static async Task<IResult> GetPosts([FromQuery] int numberOfPosts)
         {
             try
             {
