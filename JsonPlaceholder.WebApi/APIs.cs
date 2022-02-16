@@ -15,12 +15,12 @@ namespace JsonPlaceholder.WebApi
             JsonPlaceholderURL = configuration["JsonPlaceholderURL"];
 
             // Configure All Endpoints Mappings
-            app.MapGet("/users", GetUser);
-            app.MapGet("/users/posts", GetPosts);
-            app.MapGet("/users/todos", GetTodos);
+            app.MapGet("/users/{id}", GetUser);
+            app.MapGet("/posts/{numberOfPosts}", GetPosts);
+            app.MapGet("/todos/{numberOfTodos}", GetTodos);
         }
 
-        private static async Task<IResult> GetUser([FromQuery] int id)
+        private static async Task<IResult> GetUser(int id)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace JsonPlaceholder.WebApi
             }
         }
 
-        private static async Task<IResult> GetTodos([FromQuery] int numberOfTodos)
+        private static async Task<IResult> GetTodos(int numberOfTodos)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace JsonPlaceholder.WebApi
 
                     chartData.Add(new DataChartResponse
                     {
-                        Name = $"Post {item.Id}",
+                        Name = $"Todo {item.Id}",
                         Value = countLetters
                     });
                 }
@@ -72,7 +72,7 @@ namespace JsonPlaceholder.WebApi
             }
         }
 
-        private static async Task<IResult> GetPosts([FromQuery] int numberOfPosts)
+        private static async Task<IResult> GetPosts(int numberOfPosts)
         {
             try
             {

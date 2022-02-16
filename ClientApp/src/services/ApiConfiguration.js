@@ -1,4 +1,3 @@
 export const APIEndpoint = {
-    baseUrl: "http://localhost:5161",
-    apiUrl: "http://localhost:5161"
+    apiUrl: "https://jsonplaceholder.typicode.com"
 }

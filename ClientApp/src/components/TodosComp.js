@@ -15,14 +15,14 @@ export default function TodosComp(props) {
     }, []);
 
     async function getTodosData() {
-        var responseBrowser = await endpointService.getTodosData();
+        var response = await endpointService.getTodosData();
 
-        if (responseBrowser?.length > 0 || responseBrowser !== undefined) {
+        if (response?.length > 0 || response !== undefined) {
             var labels = [];
             var dataset = [];
-            for (var i = 0; i < responseBrowser.length; i++) {
-                labels.push(responseBrowser[i].name);
-                dataset.push(responseBrowser[i].value);
+            for (var i = 0; i < response.length; i++) {
+                labels.push(`Todo ${response[i].id}`);
+                dataset.push(response[i].title.replace(/[^a-zA-Z]/g, '').length);
             }
             setLabels(labels);
             setDataset(dataset);
