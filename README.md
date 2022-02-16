@@ -11,6 +11,8 @@
 		* React latest version with Node v16.13.2, npm v8.1.2 (The IDE was already configured for this settings)
 		* The endpoint for the Web API is stored in the Services/ApiConfiguration file
 
+	* NOTICE: The route for the todos behave differently on the server its recommended to do the complex stuff in the server not on client.
+
 	* WEB API Test
 		* I made the routes for todos and posts dynamically, you can retrieve different number of items,
 		for example, /posts/30 will return only the first 30 elements from all the items
@@ -23,6 +25,6 @@
 		* Calling directly the JsonPlaceholder API, the endpoint is stored in services/ApiConfiguration file.
 		* The requests made with axios are stored in services/endpoint.service
 
-	* Program Commands
+	* React Client Commands
 		* run npm install then npm start for the react client
 
